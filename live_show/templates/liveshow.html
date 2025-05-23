@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveShow</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.min.js"></script>
+</head>
+<body>
+    <!-- top bar -->
+    <div id="topbar">
+        <h1><a href="/" style="color: white;">Live_Show!</a></h1>
+    </div>
+    <!-- main content -->
+    <div id="main">
+        <div id="content">
+            <video id="video" controls autoplay loop>
+                <source src="https://samplelib.com/lib/preview/mp4/sample-30s.mp4" type="video/mp4">
+            </video>
+            <div id="description">
+                <h2>Live Show Description</h2>
+                <p>Join Biggboy as he plays the latest games and interacts with his fans!</p>
+                <p>Follow him on social media:</p>
+                <ul>
+                    <li><a href="https://twitter.com/">Twitter</a></li>
+                    <li><a href="https://www.youtube.com/">YouTube</a></li>
+                <ul>
+            </div>
+        </div>
+        <div id="chat">
+            <h2>Chat</h2>
+            <div id="messages"></div>
+            <div id="user">
+                <p>start typing now {{ name }}!</p>
+                <input type="text" id="message" placeholder="Type your message here..." required>
+                <button type="submit" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const socket = io.connect('http://localhost:5000');
+
+        socket.on('response', function(data) {
+            const div = document.createElement('div');
+            div.textContent = `${data.user}: ${data.data}`;
+            document.getElementById('messages').appendChild(div);
+        })
+
+        socket.on('message', function(data) {
+            const div = document.createElement('div');
+            div.textContent = `${data.user}: ${data.data}`;
+            document.getElementById('messages').appendChild(div);
+
+            const isNearBottom = messages.scrollHeight - messages.scrollTop - messages.clientHeight < 100;
+            if (isNearBottom) {
+                messages.scrollTop = messages.scrollHeight;
+            }
+        });
+        
+
+        function sendMessage() {
+            const input = document.getElementById('message');
+            const message = input.value;
+            const name = getCookie('name') || 'Guest';
+            socket.emit('message', {data: message, user: name});
+            input.value = '';
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+    </script>
+</body>
+</html>

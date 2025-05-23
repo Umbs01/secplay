@@ -1,0 +1,7 @@
+services:
+  app:
+    image: umbs01/socredit:latest
+    container_name: socredit
+    restart: always
+    ports:
+      - "8000:80"

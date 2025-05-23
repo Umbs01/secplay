@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Live_Show!</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Welcome to Live_Show!</h1>
+        <p>Watch your favorite gamer Biggboy livestream today.</p>
+    </div>
+    <div id="signin">
+        <p>To get started, please enter your name and join in!</p>
+        <form action="/join" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Join</button>
+        </form>
+    </div>
+</body>
+</html>

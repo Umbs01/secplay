@@ -1,0 +1,50 @@
+Welcome to Vim 101!
+
+Vim is a powerful and highly configurable text editor. Here are some essential commands to get you started:
+
+1. Opening and Quitting Vim
+	To open a file: vim filename
+	To quit Vim: Press : to enter command mode, then type q and press Enter. Use :q! to quit without saving.
+	To save and quit: Type :wq or :x.
+
+2. Navigating in Vim
+	Move the cursor: Use the arrow keys or h (left), j (down), k (up), l (right).
+	Move by word: Use w to jump to the start of the next word or b to jump to the start of the previous word.
+	Move to the beginning or end of a line: Use 0 for the start and $ for the end.
+
+3. Inserting Text
+	Insert mode: Press i to insert text at the cursor.
+	Append mode: Press a to insert text after the cursor.
+	Open a new line: Press o to insert a new line below the current line.
+
+4. Deleting Text
+	Delete a character: Press x.
+	Delete a word: Type dw.
+	Delete a line: Type dd.
+
+5. Undo and Redo
+	Undo: Press u.
+	Redo: Press Ctrl + r.
+
+6. Searching in a File
+	Search for a term: Type /term and press Enter. Use n to jump to the next occurrence and N for the previous one.
+	Search and replace: Type :%s/old/new/g to replace all occurrences of "old" with "new".
+
+7. Copying, Cutting, and Pasting
+	Copy a line: Type yy.
+	Cut a line: Type dd.
+	Paste: Press p to paste after the cursor or P to paste before the cursor.
+
+8. Switching Between Modes
+	Normal mode: Press Esc.
+	Insert mode: Press i.
+	Visual mode: Press v to select text.
+
+9. Splitting Windows
+	Horizontal split: Type :split or :sp.
+	Vertical split: Type :vsplit or :vsp.
+	Navigate between splits: Use Ctrl + w followed by an arrow key.
+
+10. Exiting Without Saving
+	Force quit: Type :q! if you want to exit without saving changes.
+	Practice these commands, and you'll be on your way to mastering Vim in no time!
