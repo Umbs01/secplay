@@ -1,8 +1,3 @@
-DROP USER root@localhost;
-CREATE USER root@localhost IDENTIFIED BY 'il0v3A13Gs';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';
-FLUSH PRIVILEGES;
-
 CREATE DATABASE IF NOT EXISTS ctf;
 USE ctf;
 
@@ -19,5 +14,3 @@ INSERT INTO social_credit (name, score) VALUES
 ('李娜', 850),
 ('张敏', 0);
 
-CREATE TABLE flags (flag VARCHAR(100));
-INSERT INTO flags (flag) VALUES ('flag{gbk_sqli_success}');

@@ -1,7 +1,16 @@
 services:
   app:
-    image: umbs01/socredit:latest
+    image: socredit:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: socredit
     restart: always
     ports:
       - "8000:80"
+    environment:
+      - DB_SERVER=127.0.0.1 # fixed ip to be 127.0.0.1 to prevent socket connection issues
+      - DB_USERNAME=root
+      - DB_PASSWORD=password
+      - DB_DATABASE=ctf
+      - FLAG=FLAG{Dummy}

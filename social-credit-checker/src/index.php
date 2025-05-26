@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- support for chinese lang -->
     <meta http-equiv="Content-Type" content="text/html; charset=gbk">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Credit Checker: 社会信用检查器</title>

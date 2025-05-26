@@ -1,0 +1,11 @@
+services:
+  app:
+    image: live_show:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - FLAG=FLAG{Dummy}

@@ -1,12 +1,13 @@
 FROM python:3.11-slim
 
-COPY flag.txt /opt/flag.txt
+RUN apt-get update && apt-get install -y bash
 
 WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-CMD ["python3", "app.py"]
+RUN chmod +x init.sh
+CMD ["./init.sh"]
 
 EXPOSE 5000
