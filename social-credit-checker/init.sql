@@ -13,4 +13,3 @@ INSERT INTO social_credit (name, score) VALUES
 ('王伟', 60),
 ('李娜', 850),
 ('张敏', 0);
-
